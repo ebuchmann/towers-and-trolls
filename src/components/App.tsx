@@ -1,19 +1,25 @@
-import * as React from "react";
-import "./../assets/scss/App.scss";
+import * as React from 'react';
+import { inject, observer } from 'mobx-react';
+import './../assets/scss/App.scss';
+import DevTools from 'mobx-react-devtools';
+import TopNav from './TopNav';
+import Field from './Field';
+import Tower from './Tower';
 
-const reactLogo = require("./../assets/img/react_logo.svg");
+export interface AppProps {}
 
-export interface AppProps {
+@observer
+class App extends React.Component<AppProps, undefined> {
+  render() {
+    return (
+      <div className="app">
+        <TopNav />
+        <DevTools />
+        <Tower />
+        <Field />
+      </div>
+    );
+  }
 }
 
-export default class App extends React.Component<AppProps, undefined> {
-    render() {
-        return (
-            <div className="app">
-                <h1>Hello World!</h1>
-                <p>Foo to the barz</p>
-                <img src={reactLogo} height="480"/>
-            </div>
-        );
-    }
-}
+export default App;

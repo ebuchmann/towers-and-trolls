@@ -69,6 +69,15 @@
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "emotion": "^9.0.2",
+    "fbemitter": "^2.1.1",
+    "lodash": "^4.17.5",
+    "mobx": "^4.1.0",
+    "mobx-react": "^5.0.0",
+    "mobx-react-devtools": "^4.2.15",
+    "react-emotion": "^9.0.2",
+    "wolfy87-eventemitter": "^5.2.4"
+  },
   "postcss": {}
 }
