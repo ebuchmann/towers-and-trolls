@@ -24,6 +24,11 @@ class Tower extends React.Component<TowerProps, undefined> {
     return (
       <TowerContainer>
         <pre onClick={this.gainLevel}>
+          <span style={{ cursor: 'pointer' }}>
+            {`
+[][]
+            `}
+          </span>
           {`
   / \\
  < | >

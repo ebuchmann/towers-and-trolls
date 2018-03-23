@@ -1,11 +1,12 @@
 import Field from './field';
 import Player from './player';
-import Tower from './Tower';
+import Tower from './tower';
+import currenciesStore from './currencies';
 import { action, observable } from 'mobx';
 
 export class Enemy {
   @observable id: number = Date.now();
-  exp: number = Math.floor(Math.random() * 5) + 1;
+  coins: number = Math.floor(Math.random() * 5) + 1;
   @observable hp: number;
   @observable maxHp: number;
 
@@ -47,7 +48,7 @@ class Game {
         damage = this.fieldStore.entities[index].takeDamage(damage);
         if (this.fieldStore.entities[index].hp <= 0) {
           // Get rewards!
-          this.playerStore.exp += this.fieldStore.entities[index].exp;
+          currenciesStore.addCoins(this.fieldStore.entities[index].coins);
           // Kill off enemy
           // this.fieldStore.entities[index] = null;
         }
@@ -64,6 +65,7 @@ class Game {
       field: this.fieldStore,
       player: this.playerStore,
       tower: this.towerStore,
+      currencies: currenciesStore,
     };
   }
 }

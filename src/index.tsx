@@ -20,6 +20,8 @@ render(
 // Hot Module Replacement API
 declare let module: { hot: any };
 
+window.store = game.allStores;
+
 if (module.hot) {
   module.hot.accept('./components/App', () => {
     const NewApp = require('./components/App').default;

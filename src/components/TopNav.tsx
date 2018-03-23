@@ -17,16 +17,21 @@ class TopNav extends React.Component<TopNavProps, any> {
   render() {
     const { exp } = this.props.player;
     const { level } = this.props.tower;
+    const { level: fieldLevel } = this.props.field;
     return (
       <header className={classes}>
         Exp: {exp} | TLvl: {level} | <span onClick={this.props.field.moveForward}>FLvl</span>:{' '}
-        {this.props.field.level}
+        {fieldLevel} | Map
       </header>
     );
   }
 }
 
 const classes = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 5px;
   border-bottom: 1px solid black;
   background-color: black;
