@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 import styled, { css } from 'react-emotion';
 import TowerStore from '../store/tower';
 import PlayerStore from '../store/player';
+import Warehouse from './Warehouse';
 
 export interface TowerProps {
   tower?: TowerStore;
@@ -30,22 +31,21 @@ class Tower extends React.Component<TowerProps, undefined> {
             `}
           </span>
           {`
-  / \\
- < | >
-  [ ]
-  [ ]
-[     ]
-[     ]
+        / \\
+       < | >
+        [ ]
+/---\\   [ ]
+|    |[     ]
+|    |[     ]
 -------
 `}
         </pre>
+        <Warehouse />
       </TowerContainer>
     );
   }
 }
 
-const TowerContainer = styled('pre')`
-  font-family: monospaced;
-`;
+const TowerContainer = styled('pre')``;
 
 export default Tower;

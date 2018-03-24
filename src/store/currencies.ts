@@ -1,4 +1,5 @@
 import { action, computed, observable } from 'mobx';
+import warehouseStore from './warehouse';
 
 export interface CurrenciesData {
   coins: number;
@@ -8,7 +9,7 @@ export class Currencies {
   @observable coins: number = 0;
   @computed
   get coinsMax(): number {
-    return 1000;
+    return warehouseStore.coinStorage + 500;
   }
 
   @action.bound

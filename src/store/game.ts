@@ -2,6 +2,7 @@ import Field from './field';
 import Player from './player';
 import Tower from './tower';
 import currenciesStore from './currencies';
+import warehouseStore from './warehouse';
 import { action, observable } from 'mobx';
 
 export class Enemy {
@@ -66,6 +67,7 @@ class Game {
       player: this.playerStore,
       tower: this.towerStore,
       currencies: currenciesStore,
+      warehouse: warehouseStore,
     };
   }
 }

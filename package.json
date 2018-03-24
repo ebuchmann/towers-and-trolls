@@ -2,7 +2,10 @@
   "name": "towers-and-trolls",
   "version": "0.1.0",
   "description": "The hit new game called Towers and Trolls",
-  "keywords": ["game", "incremental"],
+  "keywords": [
+    "game",
+    "incremental"
+  ],
   "author": "Eric Buchmann",
   "license": "MIT",
   "repository": {
@@ -64,6 +67,7 @@
     "mobx-react": "^5.0.0",
     "mobx-react-devtools": "^4.2.15",
     "react-emotion": "^9.0.2",
+    "semantic-ui-react": "^0.79.0",
     "wolfy87-eventemitter": "^5.2.4"
   },
   "postcss": {}

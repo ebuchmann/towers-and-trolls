@@ -2,7 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import styled, { css } from 'react-emotion';
 import { Enemy } from '../store/game';
-import { enemyBox } from '../assets/asci/enemies';
+import { enemyBox } from '../assets/ascii/enemies';
 
 export interface EnemyProps {
   enemy: Enemy;

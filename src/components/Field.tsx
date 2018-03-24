@@ -30,8 +30,6 @@ class Field extends React.Component<FieldProps, undefined> {
 }
 
 const FieldContainer = styled('pre')`
-  font-family: monospaced;
-
   .entities {
   }
 
