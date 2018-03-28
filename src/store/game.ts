@@ -57,6 +57,7 @@ class Game {
       }
     } while (damage > 0 && index > -1 && loop < 50);
 
+    currenciesStore.addLumber(1);
     // Removes enemy from the front, if it's not null it deals damage to tower
     const removed = this.fieldStore.removeEntity();
   };

@@ -2320,6 +2320,10 @@ decompress@^4.0.0:
     pify "^2.3.0"
     strip-dirs "^2.0.0"
 
+dedent@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
+
 deep-equal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
@@ -9156,10 +9160,6 @@ wide-align@^1.1.0:
 window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
-
-wolfy87-eventemitter@^5.2.4:
-  version "5.2.4"
-  resolved "https://registry.yarnpkg.com/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.4.tgz#5021d2952d3611cbcd195149711d9b595cd11d48"
 
 wordwrap@0.0.2:
   version "0.0.2"

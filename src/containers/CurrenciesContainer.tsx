@@ -12,11 +12,16 @@ export interface CurrenciesContainerProps {
 @observer
 class CurrenciesContainer extends React.Component<CurrenciesContainerProps, undefined> {
   render() {
-    const { coins, coinsMax } = this.props.currencies;
+    const { coins, coinsMax, lumber, lumberMax } = this.props.currencies;
 
     return (
       <div onClick={() => this.props.warehouse.unlockWarehouse()}>
-        Coins: {coins} / {coinsMax}
+        <div>
+          Coins: {coins} / {coinsMax}
+        </div>
+        <div>
+          Lumber: {lumber} / {lumberMax}
+        </div>
       </div>
     );
   }

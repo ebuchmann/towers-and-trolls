@@ -1,9 +1,12 @@
+import * as dedent from 'dedent';
+
 export const noWarehouse = `    
    |
 ./\\|
 ____`;
 
-export const basicWarehouse = `+==+
+export const basicWarehouse = dedent`
++==+
 |  |
 |  |
 +==+`;

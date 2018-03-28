@@ -60,6 +60,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "dedent": "^0.7.0",
     "emotion": "^9.0.2",
     "fbemitter": "^2.1.1",
     "lodash": "^4.17.5",
@@ -67,8 +68,7 @@
     "mobx-react": "^5.0.0",
     "mobx-react-devtools": "^4.2.15",
     "react-emotion": "^9.0.2",
-    "semantic-ui-react": "^0.79.0",
-    "wolfy87-eventemitter": "^5.2.4"
+    "semantic-ui-react": "^0.79.0"
   },
   "postcss": {}
 }

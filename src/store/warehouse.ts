@@ -17,6 +17,13 @@ export class WarehouseStore {
     return 500 * this.level;
   }
 
+  @computed
+  get lumberStorage(): number {
+    if (!this.unlocked) return 0;
+
+    return 250 * this.level;
+  }
+
   @action.bound
   unlockWarehouse(): void {
     if (currenciesStore.coins >= 5) {
