@@ -3,6 +3,7 @@ import Player from './player';
 import Tower from './tower';
 import currenciesStore from './currencies';
 import warehouseStore from './warehouse';
+import lumberjackStore from './lumberjack';
 import { action, observable } from 'mobx';
 
 export class Enemy {
@@ -32,9 +33,10 @@ class Game {
   towerStore: Tower = new Tower();
 
   constructor() {
-    setInterval(this.loop, 3500);
+    setInterval(this.loop, 1000);
   }
 
+  @action
   loop = () => {
     // Adds first, to get the enemy in the array for rendering
     this.fieldStore.addEntity(new Enemy());
@@ -49,7 +51,7 @@ class Game {
         damage = this.fieldStore.entities[index].takeDamage(damage);
         if (this.fieldStore.entities[index].hp <= 0) {
           // Get rewards!
-          currenciesStore.addCoins(this.fieldStore.entities[index].coins);
+          currenciesStore.addCurrency('coins', this.fieldStore.entities[index].coins);
           // Kill off enemy
           // this.fieldStore.entities[index] = null;
         }
@@ -57,7 +59,8 @@ class Game {
       }
     } while (damage > 0 && index > -1 && loop < 50);
 
-    currenciesStore.addLumber(1);
+    currenciesStore.addCurrency('lumber', currenciesStore.lumberPerTick);
+
     // Removes enemy from the front, if it's not null it deals damage to tower
     const removed = this.fieldStore.removeEntity();
   };
@@ -69,6 +72,7 @@ class Game {
       tower: this.towerStore,
       currencies: currenciesStore,
       warehouse: warehouseStore,
+      lumberjack: lumberjackStore,
     };
   }
 }

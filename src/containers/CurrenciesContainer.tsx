@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Currencies } from '../store/currencies';
+import { ResourcesStore } from '../store/currencies';
 import { WarehouseStore } from '../store/warehouse';
 
 export interface CurrenciesContainerProps {
-  currencies?: Currencies;
+  currencies?: ResourcesStore;
   warehouse?: WarehouseStore;
 }
 
@@ -17,10 +17,10 @@ class CurrenciesContainer extends React.Component<CurrenciesContainerProps, unde
     return (
       <div onClick={() => this.props.warehouse.unlockWarehouse()}>
         <div>
-          Coins: {coins} / {coinsMax}
+          Coins: {coins.toFixed(2)} / {coinsMax}
         </div>
         <div>
-          Lumber: {lumber} / {lumberMax}
+          Lumber: {lumber.toFixed(2)} / {lumberMax}
         </div>
       </div>
     );

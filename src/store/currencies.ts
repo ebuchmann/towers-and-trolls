@@ -1,58 +1,59 @@
 import { action, computed, observable } from 'mobx';
 import warehouseStore from './warehouse';
 import warehouse from './warehouse';
+import lumberjackStore from './lumberjack';
 
-export interface CurrenciesData {
+export interface ResourcesData {
   coins: number;
   lumber: number;
 }
 
-export class Currencies {
+export class ResourcesStore {
   // Lumber
   @observable lumber: number = 0;
   @observable lumberLifetime: number = 0;
+
   @computed
   get lumberMax(): number {
     return warehouseStore.lumberStorage + 250;
   }
 
-  @action.bound
-  addLumber(value: number): void {
-    this.lumber = Math.min(this.lumber + value, this.lumberMax);
-  }
-
-  @action.bound
-  removeLumber(value: number): void {
-    this.lumber -= value;
+  @computed
+  get lumberPerTick(): number {
+    return lumberjackStore.perTick + lumberjackStore.perTick * 0.25;
   }
 
   // Coins
   @observable coins: number = 0;
+  @observable coinsLifetime: number = 0;
+
   @computed
   get coinsMax(): number {
     return warehouseStore.coinStorage + 500;
   }
 
+  // Helper methods
   @action.bound
-  addCoins(value: number): void {
-    this.coins = Math.min(this.coins + value, this.coinsMax);
+  addCurrency(type: string, value: number): void {
+    this[type] = Math.min(this[type] + value, this[`${type}Max`]);
   }
 
   @action.bound
-  removeCoins(value: number): void {
-    this.coins -= value;
+  removeCurrency(type: string, value: number): void {
+    this[type] -= value;
   }
 
-  save(): CurrenciesData {
+  // Saving...
+  save(): ResourcesData {
     return {
       coins: this.coins,
       lumber: this.lumber,
     };
   }
 
-  load({ coins }: CurrenciesData) {
-    this.addCoins(coins);
+  load({ coins }: ResourcesData) {
+    this.addCurrency('coins', coins);
   }
 }
 
-export default new Currencies();
+export default new ResourcesStore();

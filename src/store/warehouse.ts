@@ -27,7 +27,6 @@ export class WarehouseStore {
   @action.bound
   unlockWarehouse(): void {
     if (currenciesStore.coins >= 5) {
-      currenciesStore.removeCoins(5);
       this.unlocked = true;
     }
   }

@@ -19,6 +19,7 @@ render(
 
 // Hot Module Replacement API
 declare let module: { hot: any };
+declare let window: { store: any };
 
 window.store = game.allStores;
 

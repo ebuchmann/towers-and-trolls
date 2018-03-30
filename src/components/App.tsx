@@ -7,6 +7,7 @@ import TopNav from './TopNav';
 import Field from './Field';
 import Tower from './Tower';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
+import ButtonsContainer from '../containers/ButtonsContainer';
 
 export interface AppProps {}
 
@@ -20,6 +21,7 @@ class App extends React.Component<AppProps, undefined> {
         <Tower />
         <Field />
         <CurrenciesContainer />
+        <ButtonsContainer />
       </AppContainer>
     );
   }
