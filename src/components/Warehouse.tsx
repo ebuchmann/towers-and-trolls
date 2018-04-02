@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import styled, { css } from 'react-emotion';
-import { WarehouseStore, Currencies } from '../store';
+import { WarehouseStore, ResourcesStore } from '../store';
 import { noWarehouse, basicWarehouse } from '../assets/ascii/warehouse';
 import { Popup } from 'semantic-ui-react';
 
 export interface TowerProps {
   warehouse?: WarehouseStore;
-  currencies?: Currencies;
+  currencies?: ResourcesStore;
 }
 
 @inject('currencies', 'warehouse')

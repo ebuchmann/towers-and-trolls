@@ -1,29 +1,13 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import styled, { css } from 'react-emotion';
-import Player from '../store/player';
-import Tower from '../store/tower';
-import Field from '../store/field';
 
-export interface TopNavProps {
-  player?: Player;
-  tower?: Tower;
-  field?: Field;
-}
+export interface TopNavProps {}
 
-@inject('player', 'tower', 'field')
 @observer
 class TopNav extends React.Component<TopNavProps, any> {
   render() {
-    const { exp } = this.props.player;
-    const { level } = this.props.tower;
-    const { level: fieldLevel } = this.props.field;
-    return (
-      <header className={classes}>
-        Exp: {exp} | TLvl: {level} | <span onClick={this.props.field.moveForward}>FLvl</span>:{' '}
-        {fieldLevel} | Map
-      </header>
-    );
+    return <header className={classes}>?</header>;
   }
 }
 

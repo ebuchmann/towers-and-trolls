@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { ResourcesStore } from '../store/currencies';
+import styled from 'react-emotion';
+import { ResourcesStore } from '../store/resources';
 import { WarehouseStore } from '../store/warehouse';
 
 export interface CurrenciesContainerProps {
@@ -12,19 +13,43 @@ export interface CurrenciesContainerProps {
 @observer
 class CurrenciesContainer extends React.Component<CurrenciesContainerProps, undefined> {
   render() {
-    const { coins, coinsMax, lumber, lumberMax } = this.props.currencies;
+    const {
+      coins,
+      coinsMax,
+      lumber,
+      lumberMax,
+      lumberPerTick,
+      food,
+      foodMax,
+      foodPerTick,
+    } = this.props.currencies;
 
     return (
-      <div onClick={() => this.props.warehouse.unlockWarehouse()}>
-        <div>
-          Coins: {coins.toFixed(2)} / {coinsMax}
-        </div>
-        <div>
-          Lumber: {lumber.toFixed(2)} / {lumberMax}
-        </div>
-      </div>
+      <ResourceTable>
+        <tr>
+          <td>Coins:</td>
+          <td>{coins.toFixed(2)}</td>
+          <td>{coinsMax}</td>
+        </tr>
+        <tr>
+          <td>Lumber:</td>
+          <td>{lumber.toFixed(2)}</td>
+          <td>{lumberMax}</td>
+          <td>(+{lumberPerTick.toFixed(2)})</td>
+        </tr>
+        <tr>
+          <td>Food:</td>
+          <td>{food.toFixed(2)}</td>
+          <td>{foodMax}</td>
+          <td>(+{foodPerTick.toFixed(2)})</td>
+        </tr>
+      </ResourceTable>
     );
   }
 }
+
+const ResourceTable = styled('table')`
+  width: 100%;
+`;
 
 export default CurrenciesContainer;

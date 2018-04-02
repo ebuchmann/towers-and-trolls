@@ -1,5 +1,5 @@
 import { action, computed, observable } from 'mobx';
-import currenciesStore from './currencies';
+import resourcesStore from './resources';
 
 export interface WarehouseData {
   unlocked: boolean;
@@ -7,8 +7,8 @@ export interface WarehouseData {
 }
 
 export class WarehouseStore {
-  @observable unlocked: boolean = false;
-  @observable level: number = 1;
+  @observable unlocked: boolean = true;
+  @observable level: number = 0;
 
   @computed
   get coinStorage(): number {
@@ -24,11 +24,16 @@ export class WarehouseStore {
     return 250 * this.level;
   }
 
+  @computed
+  get foodStorage(): number {
+    if (!this.unlocked) return 0;
+
+    return 500 * this.level;
+  }
+
   @action.bound
-  unlockWarehouse(): void {
-    if (currenciesStore.coins >= 5) {
-      this.unlocked = true;
-    }
+  gainLevel(): void {
+    this.level += 1;
   }
 }
 

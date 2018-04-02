@@ -1,4 +1,4 @@
 import { WarehouseStore } from './warehouse';
-import { ResourcesStore } from './currencies';
+import { ResourcesStore } from './resources';
 
 export { WarehouseStore, ResourcesStore };

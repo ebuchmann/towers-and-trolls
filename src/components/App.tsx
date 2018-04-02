@@ -4,8 +4,6 @@ import './../assets/scss/App.scss';
 import styled from 'react-emotion';
 import DevTools from 'mobx-react-devtools';
 import TopNav from './TopNav';
-import Field from './Field';
-import Tower from './Tower';
 import CurrenciesContainer from '../containers/CurrenciesContainer';
 import ButtonsContainer from '../containers/ButtonsContainer';
 
@@ -18,18 +16,33 @@ class App extends React.Component<AppProps, undefined> {
       <AppContainer>
         <TopNav />
         <DevTools />
-        <Tower />
-        <Field />
-        <CurrenciesContainer />
-        <ButtonsContainer />
+        <LeftContainer>
+          <CurrenciesContainer />
+        </LeftContainer>
+        <MiddleContainer>-- ascii art -</MiddleContainer>
+        <RightContainer>
+          <ButtonsContainer />
+        </RightContainer>
       </AppContainer>
     );
   }
 }
 
 const AppContainer = styled('section')`
-  margin: 30px auto 0;
-  max-width: 800px;
+  display: flex;
+  padding: 0 1rem;
+`;
+
+const LeftContainer = styled('section')`
+  flex: 1;
+`;
+
+const MiddleContainer = styled('section')`
+  flex: 2;
+`;
+
+const RightContainer = styled('section')`
+  flex: 1;
 `;
 
 export default App;
