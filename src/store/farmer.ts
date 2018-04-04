@@ -8,11 +8,16 @@ export class FarmerStore {
 
   // Calculations
   baseCost: number = 5;
-  growth: number = 1.35;
+  growth: number = 1.75;
 
   @computed
   get perTick(): number {
-    return this.level * 0.15;
+    return this.level * 2.15;
+  }
+
+  @computed
+  get effects(): any {
+    return [['food', this.level * 2.15]];
   }
 
   @computed
@@ -21,14 +26,14 @@ export class FarmerStore {
 
     return [
       ['food', Math.floor(this.baseCost * Math.pow(this.growth, this.level))],
-      ['lumber', 5 * 1.0],
+      ['lumber', 1 * 1.0],
     ];
   }
 
   @action.bound
   gainLevel(): void {
     if (resourceStore.hasResources(this.cost)) {
-      resourceStore.removeResource(resourceTypes.FOOD, this.cost[0][1]);
+      resourceStore.removeResources(this.cost);
       this.level += 1;
     }
   }

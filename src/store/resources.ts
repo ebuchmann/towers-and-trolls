@@ -61,18 +61,15 @@ export class ResourcesStore {
   }
 
   @action.bound
-  removeResource(type: string, value: number): boolean {
-    if (this[type] >= value) {
+  removeResources(values: Array<[string, number]>): void {
+    for (const [type, value] of values) {
       this[type] -= value;
-      return true;
     }
-
-    return false;
   }
 
   @action.bound
   hasResources(values: Array<[string, number]>): boolean {
-    return values.every(value => this[value[0]] >= value[1]);
+    return values.every(([type, value]) => this[type] >= value);
   }
 
   // Saving...

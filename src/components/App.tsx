@@ -19,10 +19,10 @@ class App extends React.Component<AppProps, undefined> {
         <LeftContainer>
           <CurrenciesContainer />
         </LeftContainer>
-        <MiddleContainer>-- ascii art -</MiddleContainer>
-        <RightContainer>
+        <MiddleContainer>
           <ButtonsContainer />
-        </RightContainer>
+        </MiddleContainer>
+        <RightContainer>-- stuff --</RightContainer>
       </AppContainer>
     );
   }

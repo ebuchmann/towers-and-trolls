@@ -16,6 +16,11 @@ export class LumberjackStore {
   }
 
   @computed
+  get effects(): any {
+    return [['lumber', this.level * 0.02]];
+  }
+
+  @computed
   get cost(): number {
     if (this.level === 1) return this.baseCost;
 
@@ -24,7 +29,7 @@ export class LumberjackStore {
 
   @action.bound
   gainLevel(): void {
-    if (resourceStore.removeResource(resourceTypes.FOOD, this.cost)) this.level += 1;
+    if (resourceStore.removeResources([[resourceTypes.FOOD, this.cost]])) this.level += 1;
   }
 }
 
