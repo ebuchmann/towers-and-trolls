@@ -4,7 +4,7 @@ import './../assets/scss/App.scss';
 import styled from 'react-emotion';
 import DevTools from 'mobx-react-devtools';
 import TopNav from './TopNav';
-import CurrenciesContainer from '../containers/CurrenciesContainer';
+import ResourcesContainer from '../containers/ResourcesContainer';
 import ButtonsContainer from '../containers/ButtonsContainer';
 
 export interface AppProps {}
@@ -17,7 +17,7 @@ class App extends React.Component<AppProps, undefined> {
         <TopNav />
         <DevTools />
         <LeftContainer>
-          <CurrenciesContainer />
+          <ResourcesContainer />
         </LeftContainer>
         <MiddleContainer>
           <ButtonsContainer />
@@ -27,6 +27,8 @@ class App extends React.Component<AppProps, undefined> {
     );
   }
 }
+
+/* Styles */
 
 const AppContainer = styled('section')`
   display: flex;
@@ -39,6 +41,7 @@ const LeftContainer = styled('section')`
 
 const MiddleContainer = styled('section')`
   flex: 2;
+  padding: 0 1rem;
 `;
 
 const RightContainer = styled('section')`

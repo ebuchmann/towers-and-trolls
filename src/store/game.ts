@@ -1,6 +1,7 @@
 import resourcesStore from './resources';
 import warehouseStore from './warehouse';
 import lumberjackStore from './lumberjack';
+import scoutStore from './scout';
 import farmerStore from './farmer';
 import { action, observable } from 'mobx';
 
@@ -11,8 +12,10 @@ class Game {
 
   @action
   loop = () => {
-    resourcesStore.addCurrency('lumber', resourcesStore.lumberPerTick);
-    resourcesStore.addCurrency('food', resourcesStore.foodPerTick);
+    resourcesStore.addResources([
+      ['lumber', resourcesStore.lumberPerTick],
+      ['food', resourcesStore.foodPerTick],
+    ]);
   };
 
   get allStores() {
@@ -21,6 +24,7 @@ class Game {
       warehouse: warehouseStore,
       lumberjack: lumberjackStore,
       farmer: farmerStore,
+      scout: scoutStore,
     };
   }
 }

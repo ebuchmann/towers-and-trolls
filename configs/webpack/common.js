@@ -51,10 +51,6 @@ module.exports = {
     new StyleLintPlugin(),
     new HtmlWebpackPlugin({ template: 'index.html.ejs' }),
   ],
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
   performance: {
     hints: false,
   },

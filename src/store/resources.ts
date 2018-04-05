@@ -5,11 +5,6 @@ import lumberjackStore from './lumberjack';
 import farmerStore from './farmer';
 import farmer from './farmer';
 
-export interface ResourcesData {
-  coins: number;
-  lumber: number;
-}
-
 export enum resourceTypes {
   FOOD = 'food',
   LUMBER = 'lumber',
@@ -56,8 +51,10 @@ export class ResourcesStore {
 
   // Helper methods
   @action.bound
-  addCurrency(type: string, value: number): void {
-    this[type] = Math.min(this[type] + value, this[`${type}Max`]);
+  addResources(values: Array<[string, number]>): void {
+    for (const [type, value] of values) {
+      this[type] = Math.min(this[type] + value, this[`${type}Max`]);
+    }
   }
 
   @action.bound
@@ -70,18 +67,6 @@ export class ResourcesStore {
   @action.bound
   hasResources(values: Array<[string, number]>): boolean {
     return values.every(([type, value]) => this[type] >= value);
-  }
-
-  // Saving...
-  save(): ResourcesData {
-    return {
-      coins: this.coins,
-      lumber: this.lumber,
-    };
-  }
-
-  load({ coins }: ResourcesData) {
-    this.addCurrency('coins', coins);
   }
 }
 
