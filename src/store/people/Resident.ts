@@ -1,19 +1,14 @@
 import { action, computed, observable } from 'mobx';
-import resourceStore, { resourceTypes } from './resources';
+import resourceStore from '../resources';
 
-export class FarmerStore {
-  name: string = 'Farmer';
+export class Resident {
+  name: string = 'Resident';
   @observable unlocked: boolean = false;
   @observable level: number = 0;
 
   // Calculations
   baseCost: number = 5;
   growth: number = 1.75;
-
-  @computed
-  get perTick(): number {
-    return this.level * 2.15;
-  }
 
   @computed
   get effects(): any {
@@ -37,11 +32,6 @@ export class FarmerStore {
       this.level += 1;
     }
   }
-
-  @action.bound
-  unlock(): void {
-    this.unlocked = true;
-  }
 }
 
-export default new FarmerStore();
+export default Resident;

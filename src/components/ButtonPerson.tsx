@@ -5,6 +5,7 @@ import Button from './atoms/Button';
 
 export interface ButtonPersonProps {
   person: {
+    unlocked: boolean;
     name: string;
     level: number;
     cost: Array<[string, number]>;
@@ -52,6 +53,8 @@ class ButtonPerson extends React.Component<ButtonPersonProps, undefined> {
   }
 
   render() {
+    if (!this.props.person.unlocked) return null;
+
     return <Popup trigger={this.getTrigger()} content={this.getContent()} />;
   }
 }

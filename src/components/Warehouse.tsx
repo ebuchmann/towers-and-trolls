@@ -7,10 +7,10 @@ import { Popup } from 'semantic-ui-react';
 
 export interface TowerProps {
   warehouse?: WarehouseStore;
-  currencies?: ResourcesStore;
+  resources?: ResourcesStore;
 }
 
-@inject('currencies', 'warehouse')
+@inject('resources', 'warehouse')
 @observer
 class Warehouse extends React.Component<TowerProps, undefined> {
   trigger() {
@@ -23,7 +23,7 @@ class Warehouse extends React.Component<TowerProps, undefined> {
     const { unlocked } = this.props.warehouse;
 
     if (!unlocked) {
-      return <div>Noo!! {this.props.currencies.coins}</div>;
+      return <div>Noo!! {this.props.resources.coins}</div>;
     }
 
     return (

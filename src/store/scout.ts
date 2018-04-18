@@ -5,7 +5,7 @@ export class ScoutStore {
   name: string = 'Scout';
   description: string = 'Fights the bad guys.';
   @observable unlocked: boolean = true;
-  @observable level: number = 1;
+  @observable level: number = 0;
 
   // Calculations
   baseCost: number = 15;
@@ -13,7 +13,7 @@ export class ScoutStore {
 
   @computed
   get effects(): any {
-    return [['power', this.level * 2.15]];
+    return [['power', this.level * 2.15], ['food', this.level * 3]];
   }
 
   @computed

@@ -11,6 +11,14 @@ const Button = styled('button')`
   &:hover {
     border-color: sandybrown;
   }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    color: sandybrown;
+  }
 `;
 
 export default Button;

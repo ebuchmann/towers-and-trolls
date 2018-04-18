@@ -6,12 +6,21 @@ import DevTools from 'mobx-react-devtools';
 import TopNav from './TopNav';
 import ResourcesContainer from '../containers/ResourcesContainer';
 import ButtonsContainer from '../containers/ButtonsContainer';
+import AreaContainer from '../containers/AreaContainer';
+import TabContainer from '../containers/TabContainer';
+import MessageContainer from '../containers/MessageContainer';
+import uiStore, { UiStore } from '../store/ui';
 
-export interface AppProps {}
+export interface AppProps {
+  ui?: UiStore;
+}
 
+@inject('ui')
 @observer
-class App extends React.Component<AppProps, undefined> {
+class App extends React.Component<AppProps> {
   render() {
+    const { currentArea, currentTab } = this.props.ui;
+
     return (
       <AppContainer>
         <TopNav />
@@ -20,9 +29,13 @@ class App extends React.Component<AppProps, undefined> {
           <ResourcesContainer />
         </LeftContainer>
         <MiddleContainer>
-          <ButtonsContainer />
+          <TabContainer />
+          {currentTab === 'area' && <AreaContainer />}
+          {currentTab === 'buttons' && <ButtonsContainer />}
         </MiddleContainer>
-        <RightContainer>-- stuff --</RightContainer>
+        <RightContainer>
+          <MessageContainer />
+        </RightContainer>
       </AppContainer>
     );
   }

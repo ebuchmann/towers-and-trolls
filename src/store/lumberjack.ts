@@ -4,7 +4,7 @@ import resourceStore, { resourceTypes } from './resources';
 export class LumberjackStore {
   name: string = 'Lumberjack';
   @observable unlocked: boolean = true;
-  @observable level: number = 1;
+  @observable level: number = 0;
 
   // Calculations
   baseCost: number = 50;

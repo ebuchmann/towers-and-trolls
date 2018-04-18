@@ -49,6 +49,20 @@ export class ResourcesStore {
     return warehouseStore.coinStorage + 500;
   }
 
+  // Research
+  @observable research: number = 0;
+  @observable researchLifetime: number = 0;
+
+  @computed
+  get researchMax(): number {
+    return 500;
+  }
+
+  @computed
+  get researchPerTick(): number {
+    return 0.25;
+  }
+
   // Helper methods
   @action.bound
   addResources(values: Array<[string, number]>): void {

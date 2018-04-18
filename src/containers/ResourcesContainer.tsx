@@ -5,11 +5,11 @@ import { ResourcesStore } from '../store/resources';
 import { WarehouseStore } from '../store/warehouse';
 
 export interface ResourcesContainerProps {
-  currencies?: ResourcesStore;
+  resources?: ResourcesStore;
   warehouse?: WarehouseStore;
 }
 
-@inject('currencies', 'warehouse')
+@inject('resources', 'warehouse')
 @observer
 class ResourcesContainer extends React.Component<ResourcesContainerProps, undefined> {
   render() {
@@ -22,7 +22,10 @@ class ResourcesContainer extends React.Component<ResourcesContainerProps, undefi
       food,
       foodMax,
       foodPerTick,
-    } = this.props.currencies;
+      research,
+      researchMax,
+      researchPerTick,
+    } = this.props.resources;
 
     return (
       <ResourceTable>
@@ -43,6 +46,12 @@ class ResourcesContainer extends React.Component<ResourcesContainerProps, undefi
             <td>{food.toFixed(2)}</td>
             <td>{foodMax}</td>
             <td>(+{foodPerTick.toFixed(2)})</td>
+          </tr>
+          <tr>
+            <td>Research:</td>
+            <td>{research.toFixed(2)}</td>
+            <td>{researchMax}</td>
+            <td>(+{researchPerTick.toFixed(2)})</td>
           </tr>
         </tbody>
       </ResourceTable>
